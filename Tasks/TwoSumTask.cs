@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace CabaVS.LeetCode.Tasks
 {
+    // https://leetcode.com/problems/two-sum/
     public class TwoSumTask : ITask
     {
         private readonly (int[] Nums, int Target, int[] Output)[] _inputData =
@@ -13,6 +14,21 @@ namespace CabaVS.LeetCode.Tasks
             (new[] {3,3}, 6, new[] {0,1}),
             (new[] {2,7,11,15}, 17, new[] {0,3})
         };
+
+        public void Run()
+        {
+            foreach (var (nums, target, expectedOutput) in _inputData)
+            {
+                Console.WriteLine($"Input: [{string.Join(',', nums)}]");
+
+                var output = TwoSum(nums, target);
+
+                Console.WriteLine($"Actual output: [{string.Join(',', output)}]");
+                Console.WriteLine($"Expected output: [{string.Join(',', expectedOutput)}]");
+
+                Console.WriteLine(new string('-', 80));
+            }
+        }
 
         private int[] TwoSum(int[] nums, int target)
         {
@@ -92,21 +108,6 @@ namespace CabaVS.LeetCode.Tasks
             }
 
             throw new ApplicationException("No two sum solution");
-        }
-
-        public void Run()
-        {
-            foreach (var (nums, target, expectedOutput) in _inputData)
-            {
-                Console.WriteLine($"Input: [{string.Join(',', nums)}]");
-
-                var output = TwoSum_Solution3(nums, target);
-
-                Console.WriteLine($"Actual output: [{string.Join(',', output)}]");
-                Console.WriteLine($"Expected output: [{string.Join(',', expectedOutput)}]");
-
-                Console.WriteLine(new string('-', 80));
-            }
         }
     }
 }
