@@ -6,7 +6,7 @@ namespace CabaVS.LeetCode
     {
         static void Main(string[] args)
         {
-            new MedianOfTwoSortedArraysTask().Run();
+            new LongestPalindromicSubstringTask().Run();
         }
     }
 }
